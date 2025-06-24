@@ -1,0 +1,37 @@
+body {
+    background-color: #282828;
+    color: #ebdbb2;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.pagehead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.headtextmono {
+    text-align: center;
+}
+
+.headtext {
+    font-style: italic;
+}
+
+.navBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+.navlink {
+    padding-left: 12px;
+    padding-right: 12px;
+    color: #458588;
+    text-decoration: none;
+}
+
+.mainSection {
+    margin: 24px;
+}

@@ -67,6 +67,16 @@ body {
     padding: 16px;
 }
 
+.blogpic {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.picCap {
+    text-align: center;
+}
+
 footer {
     margin-left: auto;
     margin-right: auto;

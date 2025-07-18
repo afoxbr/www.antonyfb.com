@@ -7,9 +7,22 @@
         <item>
             <title>A New Beginning</title>
 	    <link>https://www.antonyfb.com/blog/new-beginning.html</link>
-            <pubDate>Tue, 15 Jul 2025</pubDate>
+            <pubDate>Fri, 18 Jul 2025</pubDate>
             <description>
-
+	      <![CDATA[
+<p>I’ve made the decision to relaunch my blog. This time around, I’m doing plain static pages rather than a Django application. I don’t need the extra features and I’m on a bit of a simplicity kick right now.</p>
+<p>So why am I remaking the thing from scratch rather than use the one I already had? Basically just because I needed something to get excited about and building it up from scratch sounds like more fun. It also gives me the opportunity to construct it according to my current tastes/proclivities rather than those of the Antony of several years ago. That, plus I barely used the old blog and the posts aren’t very good. I was trying to do a tech blog and I didn’t have a lot to talk about. This one will be far more broad.</p>
+<h2>Topics I’ll cover:</h2>
+<ul>
+<li>Books I’m reading</li>
+<li>Politics</li>
+<li>Open source/tech more broadly</li>
+<li>Personal stuff/mental health/autism</li>
+</ul>
+<p>That should give me more than enough room to always have something to write about. Speaking of which, I’ve got a couple of posts planned that I’d like to get started on and some stuff for my other site that needs doing.</p>
+<p>Toodles,</p>
+<p>Antony F.</p>
+		       ]]>
             </description>
         </item>
     </channel>

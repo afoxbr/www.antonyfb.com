@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>antonyfb.com</title>
+        <link>https://www.antonyfb.com</link>
+        <description>The personal blog of Antony F.</description>
+        <item>
+            <title>A New Beginning</title>
+	    <link>https://www.antonyfb.com/blog/new-beginning.html</link>
+            <pubDate>Tue, 15 Jul 2025</pubDate>
+            <description>
+
+            </description>
+        </item>
+    </channel>
+</rss>

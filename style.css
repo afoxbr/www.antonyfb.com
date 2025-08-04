@@ -39,6 +39,10 @@ body {
     padding: 16px;
 }
 
+.mainSection h1 {
+    text-align: center;
+}
+
 .conlink {
     display: flex;
     flex-direction: column;

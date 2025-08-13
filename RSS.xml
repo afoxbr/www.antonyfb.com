@@ -4,11 +4,31 @@
         <title>antonyfb.com</title>
         <link>https://www.antonyfb.com</link>
         <description>The personal blog of Antony F.</description>
- <item>
-   <title>Web Wanderings 1: A Few Cool Pages I've Found</title>      <link>https://antonyfb.com/blog/web-wandering-6aug25.html</link>
-   <pubDate>Wed, 06 Aug 2025</pubDate>
-   <description>
-     <![CDATA[
+	<item>
+	  <title>Why Are There Doodles In Every Blog Post?</title>
+	  <link>https://antonyfb.com/blog/why-doodles.html</link>
+	  <pubDate>Wed, 13 Aug 2025</pubDate>
+	  <description>
+	    <![CDATA[
+<h1>Why Are There Doodles In Every Blog Post?</h1>
+<p>In the first of a series of posts answering questions nobody has actually asked, I thought I’d address the fact that I put my <em>incredibly</em> amateurish drawings in every post. This’ll be a short one, there’s really not much to it.</p>
+<p>Once upon a time, I was in a pretty bad road accident. I’ll leave the gory details for another time but I was messed up in many ways. One of my injuries was an open fracture of the radius and ulna in my right (dominant) hand. I’ve got a bunch of scars and metal plates and a bit of nerve damage. Tingling, loss of fine motor control, poor grip strength, that sort of deal.</p>
+<p>Recently, in an attempt to improve my fine motor function, I’ve started to draw a little here and there. When I decided to restart my blog as a static site I had the bright idea of including a picture with each post. This has the effect of making me do a few extra drawings, which I hope will help with my hand.</p>
+<img class="blogpic" src="https://antonyfb.com/media/why-doodles.jpg" alt="A quick sketch of Michelangelo's David with a stick-man style smiley instead of the head" height="240" width="240">
+<p class="picCap"><i>Safe to say I could use the practice as well</i></p>
+<p>It’s too soon to tell whether it’s making any difference, but I am quite enjoying it. Like the entirety of this website, it’s a thing i do primarily for myself and then lob out into the aether on the odd chance that someone else finds a bit of value in it.</p>
+<p>That’s all I’ve got for today, thanks for reading.</p>
+<p>Toodles,</p>
+<p>–Antony F.</p>
+	    ]]>
+	  </description>
+	</item>
+	  <item>
+	    <title>Web Wanderings 1: A Few Cool Pages I've Found</title>
+	    <link>https://antonyfb.com/blog/web-wandering-6aug25.html</link>
+	    <pubDate>Wed, 06 Aug 2025</pubDate>
+	    <description>
+	      <![CDATA[
 <h1>Web Wanderings 1: A Few Cool Pages I've Found</h1>
 <img class="blogpic" src="https://antonyfb.com/media/web-wandering-060825.jpg" alt="A spider on a web asking a passing man to verify his age" height="240" width="240">
 <p class="picCap"><i>The Online Safety Act in action.</i></p>

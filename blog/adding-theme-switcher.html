@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>Farewell to the Prince of Darkness</title>
+</head>
+
+<body>
+    <header class="pagehead">
+	<button id="themeButton">☾/☀</button>
+	<p class="headtextmono">
+<pre>  ___        _ ,          
+ -   -_,   ,- - _-_ _,,   
+(  ~/||   _||_     -/  )  
+(  / ||  ' ||     ~||_<   
+ \/==||    ||      || \\  
+ /_ _||    |,      ,/--|| 
+(  - \\, _-/      _--_-'  
+                 (       </pre> 
+</p>
+<p class="headtext">The personal site and blog of Antony FB.</p>
+    </header>
+
+    <nav class="navBar">
+	<a class="navlink" href="../index.html">Home</a>
+	<a class="navlink" href="../blog/index.html">Blog</a>
+	<a class="navlink" href="../links.html">Links</a>
+	<a class="navlink" href="../RSS.xml">RSS</a>
+    </nav>
+
+    <main class="mainSection">
+<h1>Adding a Theme Switcher</h1>
+<p>I’ve written a few lines of JavaScript in order to allow people who like light themes (for some reason) to view this site in their preferred (caustic, blinding) way. There’s a button right at the top of the page, press it and you’ll see a much lighter version of my humble blog. While far from the most complex code I’ve written, I’m not a developer of any sort so I’m gonna shout about it if I manage to pull a function together without burning my house down.</p>
+<img class="blogpic" src="../media/js-dev.jpg" alt="A sketch of a man losing his marbles looking at a laptop screen" width="240" height="240">
+<p class="picCap"><i>Average JavaScript writing experience</i></p>
+<p>There’s basically just two functions behind this:</p>
+<pre><code>function makeLight() {
+    document.body.style.backgroundColor = &#39;#fbf1c7&#39;;
+    document.body.style.color = &#39;#282828&#39;;
+    localStorage.afTheme = &#39;light&#39;;
+}
+
+function makeDark() {
+    document.body.style.backgroundColor = &#39;#282828&#39;;
+    document.body.style.color = &#39;#ebdbb2&#39;;
+    localStorage.afTheme = &#39;dark&#39;;
+}</code></pre>
+<p>Plus the controlling function, making the button work, and an if statement to make it light if that’s what you wanted last time:</p>
+<pre><code>if (localStorage.afTheme === &#39;light&#39;) {
+    makeLight();
+}
+
+function changeTheme() {
+    if (localStorage.afTheme === &#39;light&#39;) {
+        makeDark();
+    } else {
+        makeLight();
+    }
+}
+
+const themeButton = document.querySelector(&#39;#themeButton&#39;);
+themeButton.addEventListener(&quot;click&quot;, changeTheme);</code></pre>
+<p>It’s keeping your preference in your browser’s local storage, so it should persist. This isn’t a cookie, just a little key:value pair that says ‘afTheme’:‘light’ or ‘afTheme’:‘dark’. This is about as simple as I could get it, if anyone knows of a better (CSS only?) way to do this, please do feel free to drop me an email at antonyf@mailbox.org and let me know about it.</p>
+<p>I’m not intending to add a huge amount of scripting to this site, mind. My intention is that it will be fully usable without JS at all. At the moment, the only other thing I have planned is a thingy for the blog index page to let you filter posts by subject. I’m not in a rush because there simply aren’t that many blog posts to search through right now.</p>
+<p>Also, just because I felt like it I modified the CSS slightly so now the font should be monospace. I like that aesthetic, I feel it really works with the sort of minimalist/retro vibe I’m going for. Hopefully others like it, too. What I found when testing the site was that my browser had the old CSS cached, so I had to delete the cache in order to see the change as well as the styling for the theme switcher button. If the button looks default and the font ain’t monospace as you’re reading this, that’ll likely be why.</p>
+<p>Alright, that’s all I’ve got for today. Thanks for reading.</p>
+<p>Toodles,</p>
+<p>–Antony F.</p>
+    </main>
+    <footer>
+	<p>___</p>
+        <p>
+            <i>This website and its content are copyright of Antony Fox-Bramwell - © Antony Fox-Bramwell 2025. All rights reserved.</i>
+        </p>
+        <p>
+            <i>No generative AI was used in the production of this site, only my own organic stupidity.</i>
+        </p>
+    </footer>
+<script data-goatcounter="https://afb.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script src="../script.js"></script>
+</body>
+
+</html>

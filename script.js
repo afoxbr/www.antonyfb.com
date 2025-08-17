@@ -4,7 +4,7 @@
 // Theme switcher
 
 function makeLight() {
-    document.body.style.backgroundColor = '#fbf1c7';
+    document.body.style.backgroundColor = '#f9f5d7';
     document.body.style.color = '#282828';
     localStorage.afTheme = 'light';
 }

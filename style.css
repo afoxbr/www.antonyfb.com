@@ -46,6 +46,10 @@ body {
     padding: 16px;
 }
 
+.mainSection p {
+    text-indent: 24px;
+}
+
 .mainSection h1 {
     text-align: center;
 }

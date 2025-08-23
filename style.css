@@ -57,6 +57,10 @@ body {
 .conlink {
     display: flex;
     flex-direction: column;
+    border: 1px solid #83a598;
+    border-radius: 4px;
+    margin: 4px;
+    padding: 4px;
 }
 
 .contitle {

@@ -5,6 +5,24 @@
         <link>https://www.antonyfb.com</link>
         <description>The personal blog of Antony F.</description>
 	<item>
+	  <title>Moving to Codeberg</title>
+	  <link>https://antonyfb.com/blog/moving-to-codeberg.html</link>
+	  <pubDate>Wed, 27 Aug 2025</pubDate>
+	  <description>
+	    <![CDATA[
+<h1>Moving to Codeberg</h1>
+<img class="blogpic" src="https://antonyfb.com/media/mountain-scribble.jpg" alt="A sketch of a man atop a small mountain staring at a big one" height="240" width="240">
+<p class="picCap"><i>Felt like scribbling today</i></p>
+<p>Recently I moved my active repositories from Github to Codeberg. It’s been a pretty smooth process. The migration tool works a treat. For the time being, I’m still pushing to both copies of the repos in question, not sure whether I’ll keep that up long-term.</p>
+<p>You can take a look at my Codeberg profile <a href="https://https://codeberg.org/antonyf">here.</a> Right now there’s just the html and gemtext for my sites visible, plus my Emacs config, orgfiles, and writing folder are there as private repos. I’ll endeavour to start on some more interesting projects soon. At the very least some scripts and makefiles to automate updates for my sites.</p>
+<p>I made the decision to switch over based mostly on values. The big one is that Codeberg is a non-profit whereas Github is a for-profit Microsoft subsidiary. I’m also a fan of the fact that Codeberg is based in Europe. I’m not a fan of the current US administration and due to the current oligarchical make-up of the American political powerbase, I can’t trust American Big Tech. All that on top of the fact that I don’t trust corporations much in the first place; indeed, in my mind they exist primarily as a way to abstract away moral responsibility.</p>
+<p>I’ll cap it off here before I go on some mad leftie rant.</p>
+<p>Toodles,</p>
+<p>–Antony F.</p>
+	    ]]>
+	  </description>
+	</item>
+	<item>
 	  <title>Folie À 00000010</title>
 	  <link>https://antonyfb.com/blog/folie-a-10.html</link>
 	  <pubDate>Sat, 23 Aug 2025</pubDate>

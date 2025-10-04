@@ -92,6 +92,11 @@ body {
     margin-right: auto;
 }
 
+.extlink {
+    color: #076678;
+    text-decoration: none;
+}
+
 .picCap {
     text-align: center;
 }

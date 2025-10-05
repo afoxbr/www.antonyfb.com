@@ -64,6 +64,7 @@ body {
     color: #282828;
     border: 1px solid #83a598;
     border-radius: 8px;
+    margin: 2px;
 }
 
 .blogTagActive {
@@ -72,6 +73,7 @@ body {
     color: #282828;
     border: 1px solid #83a598;
     border-radius: 8px;
+    margin: 2px;
 }
 
 .blogTagHidden {

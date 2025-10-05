@@ -54,7 +54,32 @@ body {
     text-align: center;
 }
 
+.blogButtons {
+    text-align: center;
+}
+
+.blogTagInactive {
+    width: 84px;
+    background-color: #83a598;
+    color: #282828;
+    border: 1px solid #83a598;
+    border-radius: 8px;
+}
+
+.blogTagActive {
+    width: 84px;
+    background-color: #458588;
+    color: #282828;
+    border: 1px solid #83a598;
+    border-radius: 8px;
+}
+
+.blogTagHidden {
+    display: none;
+}
+
 .conlink {
+    height: 84px;
     display: flex;
     flex-direction: column;
     border: 1px solid #83a598;
@@ -72,6 +97,8 @@ body {
 
 .conblurb {
     font-style: italic;
+    padding-left: 12px;
+    padding-right: 12px;
 }
 
 .extlink {

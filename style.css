@@ -79,7 +79,6 @@ body {
 }
 
 .conlink {
-    height: 84px;
     display: flex;
     flex-direction: column;
     border: 1px solid #83a598;

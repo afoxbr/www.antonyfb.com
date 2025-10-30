@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--OpenGraph tags for preview--!>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="httpe://antonyfb.com/blog/my-cwm-config.html">
+    <meta property="og:title" content="My CWM Config">
+    <meta property="og:description" content="In which the author babbles semi-coherently about a window manager for Unix-like operating systems.">
+    <meta property="og:image" content="https://antonyfb.com/media/cwm-screenshot.jpg">
+    <!--End of og tags--!>
+    <link rel="stylesheet" href="../style.css" />
+    <title>Blog Tags!</title>
+</head>
+
+<body>
+    <header class="pagehead">
+	<button id="themeButton">☾/☀</button>
+	<p class="headtextmono">
+<pre>  ___        _ ,          
+ -   -_,   ,- - _-_ _,,   
+(  ~/||   _||_     -/  )  
+(  / ||  ' ||     ~||_<   
+ \/==||    ||      || \\  
+ /_ _||    |,      ,/--|| 
+(  - \\, _-/      _--_-'  
+                 (       </pre> 
+</p>
+<p class="headtext">The personal site and blog of Antony FB.</p>
+    </header>
+
+    <nav class="navBar">
+	<a class="navlink" href="../index.html">Home</a>
+	<a class="navlink" href="../blog/index.html">Blog</a>
+	<a class="navlink" href="../links.html">Links</a>
+	<a class="navlink" href="../RSS.xml">RSS</a>
+    </nav>
+
+    <main class="mainSection">
+<h1 id="my-cwm-config-on-openbsd">My CWM Config on OpenBSD</h1>
+<p>In the latest entry in my series where I answer questions nobody asked, here I’ll explain my cwm configuration for my OpenBSD machine.</p>
+<p>For those unfamiliar, cwm is the Calm Window Manager. It’s part of the OpenBSD base distribution as one of the native window managers, along with an old version of fvwm and the venerable twm. It’s pretty simple but surprisingly powerful, a floating window manager with some basic manual tiling. It’s keyboard-centric, has an application launcher and highly configurable menus. It uses groups rather than workspaces which provides a lot of flexibility.</p>
+<p>My configuration isn’t particularly groundbreaking, but it’s comfy and suits me well. I can happily live in it indefinitely, though I do split my time between cwm and Xfce with occasional forays into other window managers or Wayland compositors. This has nothing to do with cwm limitations and everything to do with me being curious and craving novelty. It’s cwm that I return to, because it’s entirely unsurprising and very capable, and also because it’s part of OpenBSD’s base so I know I’m dealing with software that’s been refined and audited and refined again.</p>
+
+<img class="blogpic" src="../media/cwm-screenshot.jpg alt="A screenshot of my cwm setup." height="108" width="192">
+<p class="blogcap"><i>This is what I'm talking about.</i></p>
+
+<p>Let’s start off with a brief explanation of my .xsession file, or the parts that are relevant to my cwm config at least. This file is used by xenodm, an xdm fork that ships with OpenBSD as part of their gently modified Xorg implementation, Xenocara.</p>
+<p>An expert from my .xsession:</p>
+<pre><code>xscreensaver --no-splash &amp;
+xset b off
+picom &amp;
+feh --bg-fill /home/antony/Pictures/Wallpapers/obsd-gruvbox-simple.jpg &amp;
+~/bin/barscript.sh | lemonbar-xft -B#272727 -F#ebdbb2 -f &quot;JetBrains Mono-7&quot; &amp;
+emacs --daemon &amp;
+exec dbus-run-session cwm</code></pre>
+<p>There’s nothing too surprising here. I launch a screensaver program in the background, turn off angry terminal beeps, run a compositor (note: xcompmgr is in base, I use picom from ports solely because I was getting some odd artefacts with xcompmgr when moving windows. That was with OpenBSD version 7.7 though, so I think I’ll try it again with version 7.8 and see how I get on), then I set the wallpaper with feh, run a bar to give some basic info up at the top, launch an Emacs server, and then dbus runs the window manager itself.</p>
+<p>That bar, lemonbar-xft, is pretty nice. It’s basically just a box that shows the output of a shell script. There’s no systray or anything else, which may make it a little too start for many. But I love the flexibility and the simplicity. It’s a way to have a bit of information that I care about sitting at the top of my screen, and it does nothing else. No surprises, no weird stuff happening in the background that I don’t understand. That’s what I want from my computing environment.</p>
+<p>Here’s the script that feeds my bar:</p>
+<pre><code>#!/bin/sh
+
+# Simple lemonbar script
+#
+
+gettime() {
+    DATETIME=$(date &quot;+%H:%M:%S  %a, %d/%m/%Y&quot;)
+    echo -n &quot;$DATETIME &quot;
+}
+
+getnet() {
+    ISACTIVE=$(ifconfig iwm0 | awk &#39;/status:/ { print $2 }&#39;)
+    NETWORK=$(ifconfig iwm0 | awk &#39;/(nwid|join)/ { print $3 }&#39;)
+    SIGSTRENGTH=$(ifconfig iwm0 | awk &#39;match($0, /[0-9]*%/) { print substr($0, RSTART, RLENGTH) }&#39;)
+    if [ &quot;$ISACTIVE&quot; = &quot;active&quot; ] ; then
+    echo -n &quot;Network: $NETWORK | Signal: $SIGSTRENGTH &quot;
+    else
+    echo -n &quot;Network: not active &quot;
+    fi
+}
+
+getbatt() {
+    BATTERY=$(apm -l)
+    echo -n &quot;Battery: $BATTERY% | &quot;
+    ADAPTER=$(apm -a)
+    if [ $ADAPTER = 0 ] ; then
+    echo -n &quot;AC: Unplugged | &quot;
+    elif [ $ADAPTER = 1 ] ; then
+    echo -n &quot;AC: Charging | &quot;
+    else
+    echo -n &quot;AC: Unknown | &quot;
+    fi
+    BATTLIFE=$(apm -m)
+    echo -n &quot;Time remaining: $BATTLIFE minutes &quot;
+}
+
+while true ; do
+    echo &quot;%{l}$(gettime) %{c}$(getnet) %{r}$(getbatt)&quot;
+    sleep 1
+done</code></pre>
+<p>A few functions to get the time, network info, and battery information and extract useful bits from it. These functions use basic utilities from the base system to tell me what I feel I need to know. You could put whatever you want here though, provided the thing you want outputs to stdout.</p>
+<p>Those functions are wrapped in a loop that runs until stopped and just prints the output, using %{l,c,r} to signify positioning.</p>
+<p>Onto my cwm configuration file, which lives at ~/.cwmrc:</p>
+<pre><code># When first, 4 = super, M = alt,
+# C = Ctrl, S = shift.
+# keybindings
+bind-key 4-v               window-vtile
+bind-key 4-h              window-snap-left
+bind-key 4-j              window-snap-down
+bind-key 4-k              window-snap-up
+bind-key 4-l              window-snap-right
+
+# Number here refers to mouse button.
+# 1 = left, 2 = middle, 3 = right
+unbind-mouse M-3
+bind-mouse M-3            window-resize          </code></pre>
+<p>This bit defines some window management keybindings. The window-vtile function is the manual tiling I mentioned earlier. It arranges all currently on-screen windows into a master and stack layout, with the currently selected window being in the master position. I frequently use this with just two windows, such as a browser or a document viewer like Zathura on one side and Emacs on the other, to have documentation and my text editor side by side and using the space efficiently without me having to mess about with arranging stuff.</p>
+<p>The window-snap functions just move the currently selected window as far as it can go in that direction without leaving the screen.</p>
+<pre><code># windows and borders
+ignore xclock
+ignore bar
+moveamount 5</code></pre>
+<p>Really simple stuff in here. The window manager ignores xclock and my bar, and using the keyboard to move windows will do it 5 pixels at a time. The default is 1 and it’s pretty slow, I prefer my windows to zoom about like tiny digital puppies.</p>
+<pre><code># appearance
+fontname &quot;JetBrainsMono Nerd Font:pixelsize=14&quot;
+color menubg  &quot;#32302f&quot;
+color menufg  &quot;#ebdbb2&quot;
+color font    &quot;#ebdbb2&quot;
+color selfont &quot;#32302f&quot;
+gap 32 6 6 6</code></pre>
+<p>Aesthetic bits and bobs. I use my favourite monospace font, take some colours from the gruvbox terminal theme, and define gaps around the edge of the window manager where functions like window-vtile or window-snap-top won’t place clients, ensuring my bar is visible at the top and adding a bit of prettiness to maximised or tiled windows by showing a bit of the wallpaper and the calming grey of the border.</p>
+<pre><code># groups
+bind-key M-1        group-only-1
+bind-key M-2        group-only-2
+bind-key M-3        group-only-3
+bind-key M-4        group-only-4
+bind-key M-5        group-only-5
+bind-key MS-1       window-movetogroup-1
+bind-key MS-2       window-movetogroup-2
+bind-key MS-3       window-movetogroup-3
+bind-key MS-4       window-movetogroup-4
+bind-key MS-5       window-movetogroup-5
+
+sticky yes
+
+# ignore bar for purposes of groups
+autogroup 0 bar</code></pre>
+<p>This stuff essentially cajoles cwm’s groups into acting like workspaces. The group-only functions hide all windows that aren’t part of that group and make said group visible. Sticky means that whichever group is visible right now becomes the group for any newly launched windows. Group 0 is special, it’s always visible. That’s where I put my bar.</p>
+<pre><code># application keybindings
+bind-key 4-Return  alacritty
+bind-key 4-d       &quot;rofi -show drun&quot;
+bind-key 4-e       &quot;emacsclient -c -a emacs&quot;
+bind-key CMS-s     &quot;shutdown -ph now&quot;
+
+# application menu
+command firefox        firefox
+command alacritty      alacritty
+command emacsclient    &quot;emacsclient -c&quot;
+command emacs          emacs
+command zathura        zathura
+command btop           &quot;alacritty -e btop&quot;
+command vim            &quot;alacritty -e vim .&quot;
+command libreoffice    libreoffice
+command discord        &quot;ungoogled-chromium --profile-directory=Default --app-id=mfhpbolkhgobaabcbabdlnhidbjpoogc&quot;
+command whatsapp       &quot;ungoogled-chromium --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm&quot;
+command bitwarden      &quot;ungoogled-chromium --profile-directory=Default --app-id=hophjnbpmamkldmdaeggjlnpfechpkfl&quot;</code></pre>
+<p>I define some keybindings for launching applications here. I’ve got my chosen terminal emulator, a client for my Emacs server, and rofi for the odd occasion when I want to use that instead of cwm’s launcher and application menu. I’ve also added a binding for shutting my system down, which is <em>very</em> similar to the default bindings for exiting cwm and restarting it. This is new and I’m anticipating a few accidental shutdowns. Probably don’t do that on your own machine.</p>
+<p>After that, we have the application menu. It’s accessed with a right click on the root menu and contains whatever you put in it. I’ve got some of my most used applications, including some Chromium web apps.</p>
+<p>And that’s it, my cwm config. This window manager is incredibly easy to work with, it has plenty of power and visually it’s damn near a blank slate, ready and willing to be turned into whatever Dadaist nonsense the unixporn crowd desires.</p>
+<p>Thanks for reading.</p>
+<p>Toodles,</p>
+<p>–Antony F.</p>
+   </main>
+    <footer>
+	<p>___</p>
+        <p>
+            <i>This website and its content are copyright of Antony Fox-Bramwell - © Antony Fox-Bramwell 2025. All rights reserved.</i>
+        </p>
+        <p>
+            <i>No generative AI was used in the production of this site, only my own organic stupidity.</i>
+        </p>
+    </footer>
+<script data-goatcounter="https://afb.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script src="../script.js"></script>
+</body>
+
+</html>

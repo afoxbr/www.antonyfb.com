@@ -9,7 +9,7 @@
     <meta property="og:url" content="httpe://antonyfb.com/blog/my-cwm-config.html">
     <meta property="og:title" content="My CWM Config">
     <meta property="og:description" content="In which the author babbles semi-coherently about a window manager for Unix-like operating systems.">
-    <meta property="og:image" content="https://antonyfb.com/media/cwm-screenshot.jpg">
+    <meta property="og:image" content="https://antonyfb.com/media/grumpy-fox.jpg">
     <!--End of og tags--!>
     <link rel="stylesheet" href="../style.css" />
     <title>Blog Tags!</title>
@@ -39,16 +39,16 @@
     </nav>
 
     <main class="mainSection">
-<h1 id="my-cwm-config-on-openbsd">My CWM Config on OpenBSD</h1>
+<h1>My CWM Config on OpenBSD</h1>
 <p>In the latest entry in my series where I answer questions nobody asked, here I’ll explain my cwm configuration for my OpenBSD machine.</p>
 <p>For those unfamiliar, cwm is the Calm Window Manager. It’s part of the OpenBSD base distribution as one of the native window managers, along with an old version of fvwm and the venerable twm. It’s pretty simple but surprisingly powerful, a floating window manager with some basic manual tiling. It’s keyboard-centric, has an application launcher and highly configurable menus. It uses groups rather than workspaces which provides a lot of flexibility.</p>
 <p>My configuration isn’t particularly groundbreaking, but it’s comfy and suits me well. I can happily live in it indefinitely, though I do split my time between cwm and Xfce with occasional forays into other window managers or Wayland compositors. This has nothing to do with cwm limitations and everything to do with me being curious and craving novelty. It’s cwm that I return to, because it’s entirely unsurprising and very capable, and also because it’s part of OpenBSD’s base so I know I’m dealing with software that’s been refined and audited and refined again.</p>
 
-<img class="blogpic" src="../media/cwm-screenshot.jpg alt="A screenshot of my cwm setup." height="108" width="192">
-<p class="blogcap"><i>This is what I'm talking about.</i></p>
+<img class="blogpic" src="../media/cwm-screenshot.png" alt="A screenshot of my cwm setup." height="216" width="384">
+<p class="picCap"><i>This is my setup. Open image in a new tab for a proper look.</i></p>
 
 <p>Let’s start off with a brief explanation of my .xsession file, or the parts that are relevant to my cwm config at least. This file is used by xenodm, an xdm fork that ships with OpenBSD as part of their gently modified Xorg implementation, Xenocara.</p>
-<p>An expert from my .xsession:</p>
+<p>An excerpt from my .xsession:</p>
 <pre><code>xscreensaver --no-splash &amp;
 xset b off
 picom &amp;
@@ -57,7 +57,7 @@ feh --bg-fill /home/antony/Pictures/Wallpapers/obsd-gruvbox-simple.jpg &amp;
 emacs --daemon &amp;
 exec dbus-run-session cwm</code></pre>
 <p>There’s nothing too surprising here. I launch a screensaver program in the background, turn off angry terminal beeps, run a compositor (note: xcompmgr is in base, I use picom from ports solely because I was getting some odd artefacts with xcompmgr when moving windows. That was with OpenBSD version 7.7 though, so I think I’ll try it again with version 7.8 and see how I get on), then I set the wallpaper with feh, run a bar to give some basic info up at the top, launch an Emacs server, and then dbus runs the window manager itself.</p>
-<p>That bar, lemonbar-xft, is pretty nice. It’s basically just a box that shows the output of a shell script. There’s no systray or anything else, which may make it a little too start for many. But I love the flexibility and the simplicity. It’s a way to have a bit of information that I care about sitting at the top of my screen, and it does nothing else. No surprises, no weird stuff happening in the background that I don’t understand. That’s what I want from my computing environment.</p>
+<p>That bar, lemonbar-xft, is pretty nice. It’s basically just a box that shows the output of a shell script. There’s no systray or anything else, which may make it a little too stark for many. But I love the flexibility and the simplicity. It’s a way to have a bit of information that I care about sitting at the top of my screen, and it does nothing else. No surprises, no weird stuff happening in the background that I don’t understand. That’s what I want from my computing environment.</p>
 <p>Here’s the script that feeds my bar:</p>
 <pre><code>#!/bin/sh
 
@@ -129,7 +129,7 @@ color menufg  &quot;#ebdbb2&quot;
 color font    &quot;#ebdbb2&quot;
 color selfont &quot;#32302f&quot;
 gap 32 6 6 6</code></pre>
-<p>Aesthetic bits and bobs. I use my favourite monospace font, take some colours from the gruvbox terminal theme, and define gaps around the edge of the window manager where functions like window-vtile or window-snap-top won’t place clients, ensuring my bar is visible at the top and adding a bit of prettiness to maximised or tiled windows by showing a bit of the wallpaper and the calming grey of the border.</p>
+<p>Aesthetic bits and bobs. I use my favourite monospace font, take some colours from the gruvbox terminal theme, and define gaps around the edge of the window manager where functions like window-vtile or window-snap-up won’t place clients, ensuring my bar is visible at the top and adding a bit of prettiness to maximised or tiled windows by showing a bit of the wallpaper and the calming grey of the border.</p>
 <pre><code># groups
 bind-key M-1        group-only-1
 bind-key M-2        group-only-2
@@ -168,6 +168,8 @@ command bitwarden      &quot;ungoogled-chromium --profile-directory=Default --ap
 <p>I define some keybindings for launching applications here. I’ve got my chosen terminal emulator, a client for my Emacs server, and rofi for the odd occasion when I want to use that instead of cwm’s launcher and application menu. I’ve also added a binding for shutting my system down, which is <em>very</em> similar to the default bindings for exiting cwm and restarting it. This is new and I’m anticipating a few accidental shutdowns. Probably don’t do that on your own machine.</p>
 <p>After that, we have the application menu. It’s accessed with a right click on the root menu and contains whatever you put in it. I’ve got some of my most used applications, including some Chromium web apps.</p>
 <p>And that’s it, my cwm config. This window manager is incredibly easy to work with, it has plenty of power and visually it’s damn near a blank slate, ready and willing to be turned into whatever Dadaist nonsense the unixporn crowd desires.</p>
+<img class="blogpic" src="../media/grumpy-fox.jpg" alt="A sketch of a fox with a sour expression on its face" height="240" width="240">
+<p class="picCap"><i>Couldn't think of an appropriate doodle; have a grumpy fox.</i></p>
 <p>Thanks for reading.</p>
 <p>Toodles,</p>
 <p>–Antony F.</p>

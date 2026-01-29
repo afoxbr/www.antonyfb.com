@@ -3,6 +3,13 @@
 
 // Theme switcher
 
+const themeButt = document.createElement("button");
+themeButt.setAttribute("id", "themeButton");
+themeButt.textContent = "☾/☀";
+
+const themeBox = document.querySelector("#themeBox");
+themeBox.appendChild(themeButt);
+
 function makeLight() {
     document.body.style.backgroundColor = '#f9f5d7';
     document.body.style.color = '#282828';
@@ -31,6 +38,43 @@ const themeButton = document.querySelector('#themeButton');
 themeButton.addEventListener("click", changeTheme);
 
 // Blog tags
+
+const blogButtons = document.querySelector("#blogButtons");
+
+const tagHead = document.createElement("p");
+tagHead.textContent = "Tags:";
+
+const blogButtAll = document.createElement("button");
+blogButtAll.setAttribute("id", "btall");
+blogButtAll.classList.add("blogTagActive");
+blogButtAll.textContent = "Show All";
+
+const blogButtPers = document.createElement("button");
+blogButtPers.setAttribute("id", "btpers");
+blogButtPers.classList.add("blogTagInactive");
+blogButtPers.textContent = "Personal";
+
+const blogButtTech = document.createElement("button");
+blogButtTech.setAttribute("id", "bttech");
+blogButtTech.classList.add("blogTagInactive");
+blogButtTech.textContent = "Technology";
+
+const blogButtBook = document.createElement("button");
+blogButtBook.setAttribute("id", "btbook");
+blogButtBook.classList.add("blogTagInactive");
+blogButtBook.textContent = "Reading";
+
+const blogButtCult = document.createElement("button");
+blogButtCult.setAttribute("id", "btcult");
+blogButtCult.classList.add("blogTagInactive");
+blogButtCult.textContent = "Culture";
+
+blogButtons.appendChild(tagHead);
+blogButtons.appendChild(blogButtAll);
+blogButtons.appendChild(blogButtPers);
+blogButtons.appendChild(blogButtTech);
+blogButtons.appendChild(blogButtBook);
+blogButtons.appendChild(blogButtCult);
 
 var persPosts = document.querySelectorAll('.blogPers');
 var techPosts = document.querySelectorAll('.blogTech');

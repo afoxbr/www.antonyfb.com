@@ -1,11 +1,54 @@
-<h1 id="gemini-takes-flight">Gemini Takes Flight</h1>
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--OpenGraph tags for preview-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://antonyfb.com/blog/gemini-takes-flight.html">
+    <meta property="og:title" content="Gemini Takes Flight">
+    <meta property="og:description" content="In which the author points readers in the direction of a small web protocol.">
+    <meta property="og:image" content="https://antonyfb.com/media/gemini-rocket.jpg">
+    <!--End of og tags-->
+    <link rel="stylesheet" href="../style.css" />
+    <title>Glimpsing The Black Shuck</title>
+</head>
+
+<body>
+    <header class="pagehead">
+	<div id="themeBox"></div>
+	<p class="headtextmono">
+<pre>  ___        _ ,          
+ -   -_,   ,- - _-_ _,,   
+(  ~/||   _||_     -/  )  
+(  / ||  ' ||     ~||_<   
+ \/==||    ||      || \\  
+ /_ _||    |,      ,/--|| 
+(  - \\, _-/      _--_-'  
+                 (       </pre> 
+</p>
+<p class="headtext">The personal site and blog of Antony FB.</p>
+    </header>
+
+    <nav class="navBar">
+	<a class="navlink" href="../index.html">Home</a>
+	<a class="navlink" href="../blog/index.html">Blog</a>
+	<a class="navlink" href="../links.html">Links</a>
+	<a class="navlink" href="../RSS.xml">RSS</a>
+    </nav>
+
+    <main class="mainSection">
+<h1>Gemini Takes Flight</h1>
 <p>I finally got around to putting a version of this site on the Gemini protocol. I’ve had my other site on there for some time, but with this one I was concerned about all the images and such. Still, it was altogether pretty quick once I actually sat down to do it.</p>
 <p>I’m not sure how well-known the Gemini protocol is these days. I think Google releasing a chat bot under that name has effectively drowned out any discussion of the protocol on the web, which has likely impacted growth. I’m obviously not going to be able to counteract that myself but I can spend a bit of time writing an intro post to the protocol and provide a few handy links.</p>
-<h2 id="what-is-gemini">What Is Gemini?</h2>
+<h2>What Is Gemini?</h2>
 <p>Gemini is an effort to explore the conceptual space between Gopher and the web. It feels a little more like the former than the latter, but it’s more modern. Whereas Gopher is a plain text protocol, Gemini utilises a markup language called gemtext. This is very much like a markdown subset: you’ve got headings, links, lists, and very little else. There’s no CSS analogue and no on-page scripting (though CGI is possible). The protocol utilises TLS encryption for security and there’s nothing like a cookie.</p>
+<img class="blogpic" src="../media/gemini-rocket.jpg" alt="A sketch of the Gemini 3 rocket" height="240" width="240">
+<p class="picCap"><i>The Gemini 3 rocket is the protocol's namesake. Gemini uses port 1965, the year of Gemini 3's launch.</i></p>
 <p>The net result is a very simple collection of linked documents and a little media, no applications per se and no monetisation. The simplicity is very much the point here. There’s a general feeling that the modern web is a bit much and this smaller, mostly text protocol serves as a bit of a balm for the overstimulated nerds who populate the small web. I’ve heard it said that a decently skilled programmer could implement a Gemini browser in a weekend, that’s how small this thing is. Compare and contrast modern web browsers, which are the size and complexity of operating systems and represent decades of work.</p>
 <p>Now, if you’re viewing this on one of those giant modern browsers, you may have noticed how visually simple my site is. You might even have visited my other website at some point and seen how much it looks like a ’90s throwback. Both sites are basic static jobs, there’s no CMS or any other flavour of back end. This isn’t a result of my limitations as a programmer (I have written and deployed custom full stack web applications before). This is because I, myself, am one of those overstimulated nerds I mentioned before. So, of course, it’s only natural that I’d pitch my tent in Gemini as well.</p>
-<h2 id="trying-out-gemini">Trying Out Gemini</h2>
+<h2>Trying Out Gemini</h2>
 <p><a href="https://portal.mozz.us/">Use this web-based proxy</a> to visit the Gemini version of my site, if you’re curious. Same URL, but replace the ‘https://’ with ‘gemini://’. You could navigate to this post and continue reading in geminispace, if you like.</p>
 <p>A little linguistic primer:</p>
 <pre><code>http(s)| the web     | website    | blog
@@ -29,7 +72,23 @@ gemini | geminispace | capsule    | gemlog</code></pre>
 <li>gemini://antonyfb.com - This site in geminispace.</li>
 <li>gemini://ferenbrooke.com - My horror fiction site in capsule form.</li>
 </ul>
-<h2 id="wrapping-up">Wrapping Up</h2>
+<h2>Wrapping Up</h2>
 <p>Geminispace is small, noncommercial, and very human. It’s a very different experience to the modern web. It won’t suit everyone, but I’m really very fond of it. Give it a go. Or don’t. I’m not your dad.</p>
 <p>Toodles,</p>
 <p>–Antony F.</p>
+   </main>
+    <footer>
+	<p>___</p>
+        <p>
+            <i>This website and its content are copyright of Antony Fox-Bramwell - © Antony Fox-Bramwell 2025. All rights reserved.</i>
+        </p>
+        <p>
+            <i>No generative AI was used in the production of this site, only my own organic stupidity.</i>
+        </p>
+    </footer>
+<script data-goatcounter="https://afb.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script src="../script.js"></script>
+</body>
+
+</html>

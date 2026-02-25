@@ -5,6 +5,52 @@
         <link>https://www.antonyfb.com</link>
         <description>The personal blog of Antony F.</description>
 	<item>
+	  <title>Gemini Takes Flight</title>
+	  <link>https://antonyfb.com/blog/gemini-takes-flight.html</link>
+	  <pubDate>Wed, 25 Feb 2026</pubDate>
+	  <description>
+	    <![CDATA[
+<h1>Gemini Takes Flight</h1>
+<p>I finally got around to putting a version of this site on the Gemini protocol. I’ve had my other site on there for some time, but with this one I was concerned about all the images and such. Still, it was altogether pretty quick once I actually sat down to do it.</p>
+<p>I’m not sure how well-known the Gemini protocol is these days. I think Google releasing a chat bot under that name has effectively drowned out any discussion of the protocol on the web, which has likely impacted growth. I’m obviously not going to be able to counteract that myself but I can spend a bit of time writing an intro post to the protocol and provide a few handy links.</p>
+<h2>What Is Gemini?</h2>
+<p>Gemini is an effort to explore the conceptual space between Gopher and the web. It feels a little more like the former than the latter, but it’s more modern. Whereas Gopher is a plain text protocol, Gemini utilises a markup language called gemtext. This is very much like a markdown subset: you’ve got headings, links, lists, and very little else. There’s no CSS analogue and no on-page scripting (though CGI is possible). The protocol utilises TLS encryption for security and there’s nothing like a cookie.</p>
+<img class="blogpic" src="https://antonyfb.com/media/gemini-rocket.jpg" alt="A sketch of the Gemini 3 rocket" height="240" width="240">
+<p class="picCap"><i>The Gemini 3 rocket is the protocol's namesake. Gemini uses port 1965, the year of Gemini 3's launch.</i></p>
+<p>The net result is a very simple collection of linked documents and a little media, no applications per se and no monetisation. The simplicity is very much the point here. There’s a general feeling that the modern web is a bit much and this smaller, mostly text protocol serves as a bit of a balm for the overstimulated nerds who populate the small web. I’ve heard it said that a decently skilled programmer could implement a Gemini browser in a weekend, that’s how small this thing is. Compare and contrast modern web browsers, which are the size and complexity of operating systems and represent decades of work.</p>
+<p>Now, if you’re viewing this on one of those giant modern browsers, you may have noticed how visually simple my site is. You might even have visited my other website at some point and seen how much it looks like a ’90s throwback. Both sites are basic static jobs, there’s no CMS or any other flavour of back end. This isn’t a result of my limitations as a programmer (I have written and deployed custom full stack web applications before). This is because I, myself, am one of those overstimulated nerds I mentioned before. So, of course, it’s only natural that I’d pitch my tent in Gemini as well.</p>
+<h2>Trying Out Gemini</h2>
+<p><a href="https://portal.mozz.us/">Use this web-based proxy</a> to visit the Gemini version of my site, if you’re curious. Same URL, but replace the ‘https://’ with ‘gemini://’. You could navigate to this post and continue reading in geminispace, if you like.</p>
+<p>A little linguistic primer:</p>
+<pre><code>http(s)| the web     | website    | blog
+------------------------------------------
+gopher | gopherspace | gopherhole | phlog
+------------------------------------------
+gemini | geminispace | capsule    | gemlog</code></pre>
+<p>So, in the local parlance, if you’re reading this in geminispace, you’re reading a gemlog entry on my capsule. If you’re on the web, it’s a blog entry on my website. There are other little cultural differences and verbiage quirks between the various internet protocols and their denizens, but those are the ones you’ll likely bump into first and most frequently.</p>
+<p>Now, let’s say that a web-based proxy isn’t quite giving you the experience you want. What’s the canonical way to experience gemspace?</p>
+<p>For my money, it’s <a href="https://git.skyjake.fi/gemini/lagrange">Lagrange</a>. It’s available for free on most operating systems and is lightweight and highly configurable. It handles Gemini as well as Gopher. You’ll find a decent amount of crossover between both those small web communities, so only having to install one light browser and getting access to both protocols is pretty nice.</p>
+<p>There’s a wealth of other browsers available, both graphical and command-line. I like Elpher, which is an Emacs package. Amfora is a decent TUI option. Offpunk sounds pretty cool, but I’ve not had a chance to try it yet (no OpenBSD package). Regardless, you’ve got options.</p>
+<p>Of course, you’ll need somewhere to go. On Gemini, you’ll mostly be finding gemlogs, and most of those will be chiefly concerned with technical topics. We’re all massive nerds here. Here’s a little selection of good starting places:</p>
+<ul>
+<li>gemini://tlgs.one/ - ‘Totally Legit’ Gemini Search. A search engine.</li>
+<li>gemini://bbs.geminispace.org/ - Gemini BBS. The premium forum in geminispace.</li>
+<li>gemini://discogem.gmi.bacardi55.io/ - DiscoGem. Five random Gemini capsules per day.</li>
+<li>gemini://skyjake.fi/~Cosmos/view.gmi - Cosmos. A Gemini aggregator that provides links to new gemlog posts and replies to those posts.</li>
+</ul>
+<p>Of course, I’d be remiss if I didn’t engage in a little shameless self-promotion, so here are my two capsules:</p>
+<ul>
+<li>gemini://antonyfb.com - This site in geminispace.</li>
+<li>gemini://ferenbrooke.com - My horror fiction site in capsule form.</li>
+</ul>
+<h2>Wrapping Up</h2>
+<p>Geminispace is small, noncommercial, and very human. It’s a very different experience to the modern web. It won’t suit everyone, but I’m really very fond of it. Give it a go. Or don’t. I’m not your dad.</p>
+<p>Toodles,</p>
+<p>–Antony F.</p>
+	    ]]>
+</description>
+</item>
+	<item>
 	  <title>I’ve Been Reading: Straw World and Other Echoes From The Void, by Erik McHatton</title>
 	  <link>https://antonyfb.com/blog/reading-straw-world.html</link>
 	  <pubDate>Sun, 15 Feb 2026</pubDate>

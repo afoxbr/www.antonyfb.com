@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--OpenGraph tags for preview-->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://antonyfb.com/blog/control-cmus-rofi.html">
+    <meta property="og:title" content="A Simple Rofi Script to Control Cmus">
+    <meta property="og:description" content="In which the author shares a trivial shell script.">
+    <meta property="og:image" content="https://antonyfb.com/media/headphones.jpg">
+    <!--End of og tags-->
+    <link rel="stylesheet" href="../style.css" />
+    <title>A Simple Rofi Script to Control Cmus</title>
+</head>
+
+<body>
+    <header class="pagehead">
+	<div id="themeBox"></div>
+	<p class="headtextmono">
+<pre>  ___        _ ,          
+ -   -_,   ,- - _-_ _,,   
+(  ~/||   _||_     -/  )  
+(  / ||  ' ||     ~||_<   
+ \/==||    ||      || \\  
+ /_ _||    |,      ,/--|| 
+(  - \\, _-/      _--_-'  
+                 (       </pre> 
+</p>
+<p class="headtext">The personal site and blog of Antony FB.</p>
+    </header>
+
+    <nav class="navBar">
+	<a class="navlink" href="../index.html">Home</a>
+	<a class="navlink" href="../blog/index.html">Blog</a>
+	<a class="navlink" href="../links.html">Links</a>
+	<a class="navlink" href="../RSS.xml">RSS</a>
+    </nav>
+
+    <main class="mainSection">
+<h1>A Simple Rofi Script to Control Cmus</h1>
+<p>Just a short one. I found this useful, so I’m putting it here for when I inevitably forget about it. Perhaps someone else will get some value out of it.</p>
+<p>I use <a class="extlink" href="https://cmus.github.io/">cmus</a> as my music player on my OpenBSD laptop. One irksome habit I’ve developed is throwing the terminal in which it’s playing into the shadow realm and struggling to find it to pause my music when my attention needs to be somewhere other than my screen. After reading up on my favoured music player and various methods of making the whole situation a little more ergonomic, I’ve settled on using <a class="extlink" href="https://github.com/davatorium/rofi">rofi</a> with a very basic little script that interacts with cmus-remote. I just hit Meta+m and up pops a rofi window (running ‘rofi -show cmusctl’ – which is just this script sitting in ‘.config/rofi/scripts/’). Nice and easy. If I had play/pause, next, etc buttons on my keyboard I’d just bind those to cmus-remote commands, but my old Thinkpad doesn’t have those keys so here we are.</p>
+<p>Here’s the script:</p>
+<pre><code>#!/bin/sh
+
+#
+# Script to control cmus from rofi via cmus-remote
+#
+
+if [ x&quot;$@&quot; = x&quot;⏯ Play/pause&quot; ] ; then
+    cmus-remote -u
+elif [ x&quot;$@&quot; = x&quot;⏭ Next&quot; ] ; then
+    cmus-remote -n
+elif [ x&quot;$@&quot; = x&quot;⏮ Previous&quot; ] ; then
+    cmus-remote -r
+fi
+
+status=&quot;$(cmus-remote -C status | grep status | awk &#39;{ print $2 }&#39;)&quot;
+current=&quot;$(cmus-remote -Q | grep file | awk -F&quot;/&quot; &#39;{ print $5 $7 }&#39; \
+    | sed s/.mp3//g | sed s/[0-9]//g)&quot;
+
+echo &quot;Status: $status&quot;
+echo &quot;Currently playing: $current&quot;
+echo &quot;⏯ Play/pause&quot;
+echo &quot;⏭ Next&quot;
+echo &quot;⏮ Previous&quot;</code></pre>
+
+<img class="blogpic" src="../media/headphones.jpg" alt="A sketch of a pair of headphones" width="240" height="240">
+<p class="picCap"><i>I do love listening to old goth rock while I write and code</i></p>
+
+<p>That’s all from me for now.</p>
+<p>Toodles,</p>
+<p>–Antony F.</p>
+    </main>
+    <footer>
+	<p>___</p>
+        <p>
+            <i>This website and its content are copyright of Antony Fox-Bramwell - © Antony Fox-Bramwell 2025. All rights reserved.</i>
+        </p>
+        <p>
+            <i>No generative AI was used in the production of this site, only my own organic stupidity.</i>
+        </p>
+    </footer>
+<script data-goatcounter="https://afb.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script src="../script.js"></script>
+</body>
+
+</html>
